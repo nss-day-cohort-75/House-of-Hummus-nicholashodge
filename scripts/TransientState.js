@@ -17,8 +17,6 @@ export const setEntreeChoice = async (entreeChoice) => {
     //add the current entree choice's price
     const currentEntree = await fetch(`http://localhost:8088/entrees/${transientState.entreeId}`).then(result => result.json())
     transientState.price += currentEntree.price
-
-    console.table(transientState)
 }
 
 export const setVegetableChoice = async (veggieChoice) => {
@@ -33,8 +31,6 @@ export const setVegetableChoice = async (veggieChoice) => {
     //add the current vegetable choice's price
     const currentVegetable = await fetch(`http://localhost:8088/vegetables/${transientState.vegetableId}`).then(result => result.json())
     transientState.price += currentVegetable.price
-
-    console.table(transientState)
 }
 
 export const setSideChoice = async (sideChoice) => {
@@ -49,8 +45,6 @@ export const setSideChoice = async (sideChoice) => {
     //add the current side choice's price
     const currentSide = await fetch(`http://localhost:8088/sides/${transientState.sideId}`).then(result => result.json())
     transientState.price += currentSide.price
-
-    console.table(transientState)
 }
 
 export const placeOrder = async () => {

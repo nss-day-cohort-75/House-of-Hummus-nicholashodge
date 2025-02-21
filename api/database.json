@@ -144,6 +144,13 @@
       "sideId": 5,
       "price": 15.75,
       "id": 2
+    },
+    {
+      "entreeId": 1,
+      "vegetableId": 3,
+      "sideId": 1,
+      "price": 13.600000000000001,
+      "id": 3
     }
   ]
 }
