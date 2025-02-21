@@ -1,0 +1,47 @@
+title Nicholas Hodge\nHouse of Hummus
+
+participant Main
+participant FoodTruck
+participant Entrees
+participant SideDishes
+participant Vegetables
+participant PurchaseOrder
+participant Sales
+participant TransientState
+participant API
+
+note over Main:Initial page load
+Main->FoodTruck:call for html to render
+FoodTruck->Entrees:call for entree html
+Entrees->API:call for entree options
+API-->Entrees:return entree information
+Entrees-->FoodTruck:return entrees as\nradio buttons html
+FoodTruck->SideDishes:call for sides html
+SideDishes->API:call for sides options
+API-->SideDishes:return sides information
+SideDishes-->FoodTruck:return sides as\nradio buttons html
+FoodTruck->Vegetables:call for vegetable html
+Vegetables->API:call for vegetable options
+API-->Vegetables:return vegetable information
+Vegetables-->FoodTruck:return vegetables as\nradio buttons html
+FoodTruck->PurchaseOrder: call for purchase order button html
+PurchaseOrder-->FoodTruck: return purchase order button html
+FoodTruck->Sales: call for sales html
+Sales->API: call for sales information
+API-->Sales: return sales information
+Sales-->FoodTruck:return formatted sales information html
+FoodTruck-->Main: return formatted html to render
+note over Main:User interactions
+Main->Entrees:Entree radio button clicked
+Entrees->TransientState:entree transient state property updated
+Main->SideDishes:Sides radio button clicked
+SideDishes->TransientState:sides transient state property updated
+Main->Vegetables:Vegetable radio button clicked
+Vegetables->TransientState:vegetable transient state property updated
+Main->PurchaseOrder:Purchase Order button pressed
+PurchaseOrder->TransientState:call for transient state to be pushed to API
+TransientState->API:push transient state\nto API as purchase
+TransientState->TransientState:clear transient state
+TransientState-->Main:dispatch purchase event to rerender the page
+Main->FoodTruck:call for html
+FoodTruck-->Main:return html\n(see Intial page load)

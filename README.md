@@ -56,10 +56,10 @@ sequenceDiagram
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Should transient state be represented in a database diagram? Why, or why not?
-   > Your answer here
+   > No, because the transient state has the same structure as the permanent state object that will be pushed to the database (purchases in this case), so it would be redundant to have both.
 2. In the **FoodTruck** module, you are **await**ing the invocataion of all of the component functions _(e.g. sales, veggie options, etc.)_. Why must you use the `await` keyword there? Explain what happens if you remove it.
-   > Your answer here
+   > The await keyword is used to ensure that we have received the data that we are fetching before being able to use it. If we remove the await keyword, we will receive unfulfilled Object promises.
 3. When the user is making choices by selecting radio buttons, explain how that data is retained so that the **Purchase Combo** button works correctly.
-   > Your answer here
+   > The radio buttons contain tags within the html that holds the name and id information of the choice. When a choice is clicked, an event listener goes off that checks for what type of choice was selected (entree, vegetable, or side). Depending on what the name property is, the corresponding function will be called to update the id of that name to the transient state. For example, when a vegetable radio button is pressed, the evenListener reads the click, sees that a vegetable was pressed, and updates the vegetableId of the transient state to the selected vegetable. 
 4. You used the `map()` array method in the self assessment _(at least, you should have since it is a learning objective)_. Explain why that function is helpful as a replacement for a `for..of` loop.
-   > Your answer here
+   > When you declare the map function, you can invoke a function at the point of declaration that will iterate through every element of the array. In a for ... of loop, functions and variables must be declared seperately, so it is less effecient
